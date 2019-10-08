@@ -1,5 +1,6 @@
 import unittest
 import node
+import sys
 
 
 class test_node(unittest.TestCase):
@@ -51,6 +52,7 @@ class test_node(unittest.TestCase):
         root.left.left = node.Node('seven')
         root.left.right = node.Node('crazy')
         self.assertEqual(2.5, node.lowestCommonAncestor(root, 'seven', 'crazy'), "Common ancestor 2.5")
+
 
     def test_leftLeaningTree(self):
         # testing a left leaning tree
