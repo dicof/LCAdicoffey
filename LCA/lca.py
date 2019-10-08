@@ -41,7 +41,7 @@ class test_node(unittest.TestCase):
         self.assertEqual(2, node.lowestCommonAncestor(root, 2, 2), "Common Ancestor of 2 & 2 is 2 itself")
         self.assertEqual(2, node.lowestCommonAncestor(root, 4, 2), "Common Ancestor of 4 & 2 is 2 itself")
 
-    def test_extremeInputs():
+    def test_extremeInputs(self):
         root = node.Node(-1000000000000000)
         root.left = node.Node(2.5)
         root.right = node.Node(-3.3)
