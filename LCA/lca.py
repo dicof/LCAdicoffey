@@ -14,9 +14,11 @@ class test_node(unittest.TestCase):
         root.right.right = node.Node(7)
         self.assertEqual(2, node.lowestCommonAncestor(root, 4, 5))
         self.assertEqual(1, node.lowestCommonAncestor(root, 6, 5))
+
     def test_nullTree(self):
         root = None
         self.assertEqual(-1, node.lowestCommonAncestor(root, 4, 5), 'Empty tree returns -1')
+        self.assertEqual(-1, node.lowestCommonAncestor(None, 0, 0), 'Empty tree returns -1')
 
 
     def test_InvalidNode(self):
@@ -49,7 +51,7 @@ class test_node(unittest.TestCase):
         root.left.left = node.Node('seven')
         root.left.right = node.Node('crazy')
         self.assertEqual(2.5, node.lowestCommonAncestor(root, 'seven', 'crazy'), "Common ancestor 2.5")
-        
+
 
 
 if __name__ == '__main__':
