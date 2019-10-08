@@ -108,7 +108,14 @@ class test_node(unittest.TestCase):
         self.assertEqual(node.findLCA(root, 7, 2), 2, "Should return 2")
         self.assertEqual(node.findLCA(root, 4, 6), 4, "Should return 4")
 
-    
+    def test_treeOfOneElement(self):
+        # create one element tree
+        # test one element tree
+        root = node.node(1)
+
+        self.assertEqual(node.findLCA(root, 1, 2), -1, "Should return -1")
+        self.assertEqual(node.findLCA(root, 1, 1), 1, "Should return 1")
+        self.assertEqual(node.findLCA(root, 6, 7), -1, "Should return -1")
 
 
 if __name__ == '__main__':
