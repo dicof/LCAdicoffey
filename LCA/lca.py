@@ -80,6 +80,34 @@ class test_node(unittest.TestCase):
         self.assertEqual(node.findLCA(root, 7, 2), 2, "Should return 2")
         self.assertEqual(node.findLCA(root, 4, 6), 4, "Should return 4")
 
+    def test_rightLeaningTree(self):
+        #   testing a right leaning tree
+        #
+        #   1
+        #    \
+        #     2
+        #      \
+        #       3
+        #        \
+        #         4
+        #          \
+        #           5
+        #            \
+        #             6
+        #              \
+        #               7
+        root = node.node(1)
+        root.right = node.node(2)
+        root.right.right = node.node(3)
+        root.right.right.right = node.node(4)
+        root.right.right.right.right = node.node(5)
+        root.right.right.right.right.right = node.node(6)
+        root.right.right.right.right.right.right = node.node(7)
+
+        self.assertEqual(node.findLCA(root, 1, 2), 1, "Should return 1")
+        self.assertEqual(node.findLCA(root, 7, 2), 2, "Should return 2")
+        self.assertEqual(node.findLCA(root, 4, 6), 4, "Should return 4")
+
     
 
 
