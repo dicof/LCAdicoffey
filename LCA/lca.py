@@ -5,11 +5,11 @@ import node
 class test_node(unittest.TestCase):
 
     def test_basicTree(self):
-        root = node.Node(1)
-        root.left = node.Node(2)
-        root.right = node.Node(3)
-        root.left.left = node.Node(4)
-        root.left.right = node.Node(5)
+        root = node.Node(1)                      #  1
+        root.left = node.Node(2)                # /   \
+        root.right = node.Node(3)              # 2     3
+        root.left.left = node.Node(4)         #/  \   / \
+        root.left.right = node.Node(5)       #4   5  6  7
         root.right.left = node.Node(6)
         root.right.right = node.Node(7)
         self.assertEqual(2, node.lowestCommonAncestor(root, 4, 5))
@@ -41,6 +41,9 @@ class test_node(unittest.TestCase):
         self.assertEqual(2, node.lowestCommonAncestor(root, 2, 2), "Common Ancestor of 2 & 2 is 2 itself")
         self.assertEqual(2, node.lowestCommonAncestor(root, 4, 2), "Common Ancestor of 4 & 2 is 2 itself")
 
+    def test_givenString(self):
+        root = node.Node('string')
+        self.assertEqual(-1, node.lowestCommonAncestor(root, 4, 2), "Given String")
 
 if __name__ == '__main__':
     unittest.main()
