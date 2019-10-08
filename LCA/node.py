@@ -6,7 +6,6 @@ class Node:
 
 def lowestCommonAncestor(root, x, y):
 
-
     path1 = []
     path2 = []
 
