@@ -68,17 +68,17 @@ class test_node(unittest.TestCase):
         #     6
         #   /
         # 7
-        root = node.node(1)
-        root.left = node.node(2)
-        root.left.left = node.node(3)
-        root.left.left.left = node.node(4)
-        root.left.left.left.left = node.node(5)
-        root.left.left.left.left.left = node.node(6)
-        root.left.left.left.left.left.left = node.node(7)
+        root = node.Node(1)
+        root.left = node.Node(2)
+        root.left.left = node.Node(3)
+        root.left.left.left = node.Node(4)
+        root.left.left.left.left = node.Node(5)
+        root.left.left.left.left.left = node.Node(6)
+        root.left.left.left.left.left.left = node.Node(7)
 
-        self.assertEqual(node.findLCA(root, 1, 2), 1, "Should return 1")
-        self.assertEqual(node.findLCA(root, 7, 2), 2, "Should return 2")
-        self.assertEqual(node.findLCA(root, 4, 6), 4, "Should return 4")
+        self.assertEqual(node.lowestCommonAncestor(root, 1, 2), 1, "Should return 1")
+        self.assertEqual(node.lowestCommonAncestor(root, 7, 2), 2, "Should return 2")
+        self.assertEqual(node.lowestCommonAncestor(root, 4, 6), 4, "Should return 4")
 
     def test_rightLeaningTree(self):
         #   testing a right leaning tree
@@ -96,26 +96,26 @@ class test_node(unittest.TestCase):
         #             6
         #              \
         #               7
-        root = node.node(1)
-        root.right = node.node(2)
-        root.right.right = node.node(3)
-        root.right.right.right = node.node(4)
-        root.right.right.right.right = node.node(5)
-        root.right.right.right.right.right = node.node(6)
-        root.right.right.right.right.right.right = node.node(7)
+        root = node.Node(1)
+        root.right = node.Node(2)
+        root.right.right = node.Node(3)
+        root.right.right.right = node.Node(4)
+        root.right.right.right.right = node.Node(5)
+        root.right.right.right.right.right = node.Node(6)
+        root.right.right.right.right.right.right = node.Node(7)
 
-        self.assertEqual(node.findLCA(root, 1, 2), 1, "Should return 1")
-        self.assertEqual(node.findLCA(root, 7, 2), 2, "Should return 2")
-        self.assertEqual(node.findLCA(root, 4, 6), 4, "Should return 4")
+        self.assertEqual(node.lowestCommonAncestor(root, 1, 2), 1, "Should return 1")
+        self.assertEqual(node.lowestCommonAncestor(root, 7, 2), 2, "Should return 2")
+        self.assertEqual(node.lowestCommonAncestor(root, 4, 6), 4, "Should return 4")
 
     def test_treeOfOneElement(self):
         # create one element tree
         # test one element tree
-        root = node.node(1)
+        root = node.Node(1)
 
-        self.assertEqual(node.findLCA(root, 1, 2), -1, "Should return -1")
-        self.assertEqual(node.findLCA(root, 1, 1), 1, "Should return 1")
-        self.assertEqual(node.findLCA(root, 6, 7), -1, "Should return -1")
+        self.assertEqual(node.lowestCommonAncestor(root, 1, 2), -1, "Should return -1")
+        self.assertEqual(node.lowestCommonAncestor(root, 1, 1), 1, "Should return 1")
+        self.assertEqual(node.lowestCommonAncestor(root, 6, 7), -1, "Should return -1")
 
 
 if __name__ == '__main__':
