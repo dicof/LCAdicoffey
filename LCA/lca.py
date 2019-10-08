@@ -52,6 +52,35 @@ class test_node(unittest.TestCase):
         root.left.right = node.Node('crazy')
         self.assertEqual(2.5, node.lowestCommonAncestor(root, 'seven', 'crazy'), "Common ancestor 2.5")
 
+    def test_leftLeaningTree(self):
+        # testing a left leaning tree
+        #
+        #                         1
+        #                       /
+        #                     2
+        #                   /
+        #                 3
+        #               /
+        #             4
+        #           /
+        #         5
+        #       /
+        #     6
+        #   /
+        # 7
+        root = node.node(1)
+        root.left = node.node(2)
+        root.left.left = node.node(3)
+        root.left.left.left = node.node(4)
+        root.left.left.left.left = node.node(5)
+        root.left.left.left.left.left = node.node(6)
+        root.left.left.left.left.left.left = node.node(7)
+
+        self.assertEqual(node.findLCA(root, 1, 2), 1, "Should return 1")
+        self.assertEqual(node.findLCA(root, 7, 2), 2, "Should return 2")
+        self.assertEqual(node.findLCA(root, 4, 6), 4, "Should return 4")
+
+    
 
 
 if __name__ == '__main__':
