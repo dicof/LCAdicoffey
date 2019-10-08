@@ -46,6 +46,10 @@ class test_node(unittest.TestCase):
         root.left = node.Node(2.5)
         root.right = node.Node(-3.3)
         self.assertEqual(-1000000000000000, node.lowestCommonAncestor(root, 2.5, -3.3), "Common ancestor -1000000000000000")
+        root.left.left = node.Node('seven')
+        root.left.right = node.Node('crazy')
+        self.assertEqual(2.5, node.lowestCommonAncestor(root, 'seven', 'crazy'), "Common ancestor 2.5")
+        
 
 
 if __name__ == '__main__':
