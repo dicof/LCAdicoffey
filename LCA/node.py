@@ -5,21 +5,21 @@ class Node:
         self.right = None
         self.visited = False
 
-def lowestCommonAncestor(root, x, y):
-
-    path1 = []
-    path2 = []
-
-    if (not findPath(root, path1, x) or not findPath(root, path2, y)):
-        return -1
-
-
-    i = 0
-    while(i < len(path1) and i < len(path2)):
-        if path1[i] != path2[i]:
-            break
-        i += 1
-    return path1[i-1]
+# def lowestCommonAncestor(root, x, y):
+#
+#     path1 = []
+#     path2 = []
+#
+#     if (not findPath(root, path1, x) or not findPath(root, path2, y)):
+#         return -1
+#
+#
+#     i = 0
+#     while(i < len(path1) and i < len(path2)):
+#         if path1[i] != path2[i]:
+#             break
+#         i += 1
+#     return path1[i-1]
 
 
 def findPath( root, path, k):
@@ -40,14 +40,8 @@ def findPath( root, path, k):
     path.pop()
     return False
 
-#DAG Node class
-class DAGNode:
-    def __init__(self, val):
-        self.val = val
-        self.pred = []
-        self.succ = []
 
-def lowestCommonAncestorDAG(root, x, y):
+def lowestCommonAncestor(root, x, y):
     if (root is not None):
         if (root.left is None and root.right is None and (x is not y)):
             return -1
@@ -75,4 +69,14 @@ def LCARecursive(root, x, y, path1, path2):
     if(path1[0] is True and path2[0] is True):
         if (left is not -1 and right is not -1):
             return root.val
-            
+        elif(left is not -1):
+            return left
+        else:
+            return right
+
+    if (left is not -1):
+        return left
+    if(right is not -1):
+        return right
+
+    return -1
