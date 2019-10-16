@@ -3,6 +3,7 @@ class Node:
         self.val =  val
         self.left = None
         self.right = None
+        self.visited = False
 
 def lowestCommonAncestor(root, x, y):
 
@@ -47,3 +48,10 @@ class DAGNode:
         self.succ = []
 
 def lowestCommonAncestorDAG(root, x, y):
+    if (root is not None):
+        if (root.left is None and root.right is None and (x is not y)):
+            return -1
+
+
+
+def LCARecursive(root, x, y, path1, path2):
