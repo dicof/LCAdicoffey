@@ -5,7 +5,7 @@ import sys
 
 class test_node(unittest.TestCase):
 
-    def test_basicTree(self):
+    def test_BasicTree(self):
         root = node.Node(1)                      #  1
         root.left = node.Node(2)                # /   \
         root.right = node.Node(3)              # 2     3
@@ -16,7 +16,7 @@ class test_node(unittest.TestCase):
         self.assertEqual(2, node.lowestCommonAncestor(root, 4, 5))
         self.assertEqual(1, node.lowestCommonAncestor(root, 6, 5))
 
-    def test_nullTree(self):
+    def test_NullTree(self):
         root = None
         self.assertEqual(-1, node.lowestCommonAncestor(root, 4, 5), 'Empty tree returns -1')
         self.assertEqual(-1, node.lowestCommonAncestor(None, 0, 0), 'Empty tree returns -1')
@@ -32,7 +32,7 @@ class test_node(unittest.TestCase):
         root.right.right = node.Node(7)
         self.assertEqual(-1, node.lowestCommonAncestor(root, 4, 8), "Unfound node returns -1")
 
-    def test_commonAncestorIsNode(self):
+    def test_CommonAncestorIsNode(self):
         root = node.Node(1)
         root.left = node.Node(2)
         root.right = node.Node(3)
@@ -44,7 +44,7 @@ class test_node(unittest.TestCase):
         self.assertEqual(2, node.lowestCommonAncestor(root, 2, 2), "Common Ancestor of 2 & 2 is 2 itself")
         self.assertEqual(2, node.lowestCommonAncestor(root, 4, 2), "Common Ancestor of 4 & 2 is 2 itself")
 
-    def test_extremeInputs(self):
+    def test_ExtremeInputs(self):
         root = node.Node(-1000000000000000)
         root.left = node.Node(2.5)
         root.right = node.Node(-3.3)
@@ -54,7 +54,7 @@ class test_node(unittest.TestCase):
         self.assertEqual(2.5, node.lowestCommonAncestor(root, 'seven', 'crazy'), "Common ancestor 2.5")
 
 
-    def test_leftLeaningTree(self):
+    def test_LeftLeaningTree(self):
         # testing a left leaning tree
         #
         #                         1
@@ -82,7 +82,7 @@ class test_node(unittest.TestCase):
         self.assertEqual(node.lowestCommonAncestor(root, 7, 2), 2, "Should return 2")
         self.assertEqual(node.lowestCommonAncestor(root, 4, 6), 4, "Should return 4")
 
-    def test_rightLeaningTree(self):
+    def test_RightLeaningTree(self):
         #   testing a right leaning tree
         #
         #   1
@@ -110,7 +110,7 @@ class test_node(unittest.TestCase):
         self.assertEqual(node.lowestCommonAncestor(root, 7, 2), 2, "Should return 2")
         self.assertEqual(node.lowestCommonAncestor(root, 4, 6), 4, "Should return 4")
 
-    def test_treeOfOneElement(self):
+    def test_TreeOfOneElement(self):
         # create one element tree
         # test one element tree
         root = node.Node(1)
@@ -118,6 +118,13 @@ class test_node(unittest.TestCase):
         self.assertEqual(node.lowestCommonAncestor(root, 1, 2), -1, "Should return -1")
         self.assertEqual(node.lowestCommonAncestor(root, 1, 1), 1, "Should return 1")
         self.assertEqual(node.lowestCommonAncestor(root, 6, 7), -1, "Should return -1")
+
+
+    def test_SharedTree(self):
+
+    def test_CycleNode(self):
+
+    
 
 
 if __name__ == '__main__':
