@@ -47,14 +47,3 @@ class DAGNode:
         self.succ = []
 
 def lowestCommonAncestorDAG(root, x, y):
-    if root == x or root = y:
-        return root
-
-    if x == y:
-        return x.val
-
-    if root is None:
-        return None
-
-    path = []
-    i = 0
