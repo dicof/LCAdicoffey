@@ -8,3 +8,23 @@ class Node:
         self.succ = []
 
     def dagLCA(root, x, y):
+
+        if root is None:
+            return -1
+
+        if root.val == x or root.val == y:
+            return root
+
+        if x == y:
+            return x.va;
+        lca = []
+        i = 0
+        while(i<len(x.pred)):
+            j = 0
+            while(j<len(y.pred)):
+                if(x.pred[i].val == y.pred[j].val):
+                    lca.append(x.pred[i].val)
+                    j+=1
+                else:
+                    j+=1
+            i+=1
