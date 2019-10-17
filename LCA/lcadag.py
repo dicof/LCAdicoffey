@@ -43,3 +43,8 @@ class DAG:
         if graph_dict == None:
             graph_dict = {}
         self.__graph_dict = graph_dict
+
+def vertices(self):
+    return list(self.__graph_dict.keys())
+
+    
