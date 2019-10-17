@@ -1,8 +1,10 @@
 ##DAG
-class Graph:
 
-    def __init__(self):
-        self.graph = {"A": set()}
-        self.root = "A"
+class Node:
 
-        
+    def __init__(self, val):
+        self.val = val
+        self.pred = []
+        self.succ = []
+
+    def dagLCA(root, x, y):
