@@ -47,4 +47,21 @@ class DAG:
 def vertices(self):
     return list(self.__graph_dict.keys())
 
-    
+def edges(self):
+    return self.__graph_dict.__generate_edges()
+
+def add_vertex(self, vertex):
+    if vertex not in self.__graph_dict:
+        self.__graph_dict[vertex] = []
+
+def add_edge(self, edge):
+    if len(edge) != 2:
+            return
+
+    vertex1, vertex2 = edge
+    if vertex1 in self.__graph_dict and vertex2 in self.__graph_dict:
+            self.__graph_dict[vertex1].append(vertex2)
+        else:
+            self.add_vertex(vertex2)
+            self.add_vertex(vertex1)
+            self.__graph_dict[vertex1].append(vertex2)
