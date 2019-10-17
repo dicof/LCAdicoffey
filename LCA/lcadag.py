@@ -13,7 +13,7 @@ def LCA(root, x, y):
         return -1
 
     if root.val == x.val or root.val == y.val:
-        return root
+        return root.val
 
     if x == y:
         return x.val;
