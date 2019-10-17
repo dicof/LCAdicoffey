@@ -36,3 +36,10 @@ def LCA(root, x, y):
             lca.append(dagLCA(root,x,y,pred[0]))
 
     return max(lca)
+
+##Attempt 2
+class DAG:
+    def __init__(self, graph_dict=None):
+        if graph_dict == None:
+            graph_dict = {}
+        self.__graph_dict = graph_dict
