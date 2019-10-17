@@ -28,3 +28,11 @@ class Node:
                 else:
                     j+=1
             i+=1
+
+        if(lca == []):
+            if(x.val > y.val):
+                lca.append(dagLCA(root, x.pred[0], y))
+            else:
+                lca.append(dagLCA(root,x,y,pred[0]))
+
+        return max(lca)
