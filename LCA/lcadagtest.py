@@ -24,7 +24,7 @@ class test_lcadag(unittest.TestCase):
         r5.pred = [r3,r4,root]
         r6.pred = [r4]
         self.assertEqual(lcadag.LCA(root,r2, r3), 1, "Should be 1")
-        self.assertEqual(lcadag.LCA(root,r1, r5), 1, "Should be 1")
+        self.assertEqual(lcadag.LCA(root,root, r5), 1, "Should be 1")
         self.assertEqual(lcadag.LCA(root,r4, r3), 3, "Should be 3")
         self.assertEqual(lcadag.LCA(root,r5, r2), 2, "Should be 2")
 
