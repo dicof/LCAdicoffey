@@ -120,11 +120,28 @@ class test_node(unittest.TestCase):
         self.assertEqual(node.lowestCommonAncestor(root, 6, 7), -1, "Should return -1")
 
 
-    def test_SharedTree(self):
+    #def test_SharedTree(self):
 
-    def test_CycleNode(self):
+    # def test_CycleNode(self):
+    #     #Node has itself as child
+    #     root = node.Node(1)
+    #     root.left = root
+    #     root.right = root
+    #     self.assertEqual(node.lowestCommonAncestor(root, 1, 1), 1, "Should be 1")
+    #     self.assertEqual(node.lowestCommonAncestor(root, 2, 2), -1, "Should be -1")
 
-    
+    def test_DAG(self):
+        root = node.Node(1)                      #  1
+        root.left = node.Node(2)                # /   \
+        root.right = node.Node(3)              # 2     3
+        root.left.left = node.Node(4)         #   \\  //
+        root.left.right = root.left.left    #       4
+        root.right.left = root.left.right
+        root.right.right = root.right.left
+
+        self.assertEqual(node.lowestCommonAncestor(root, 4, 3), 3, "Should be 3")
+
+
 
 
 if __name__ == '__main__':
