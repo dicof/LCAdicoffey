@@ -8,8 +8,22 @@ class Node:
         self.parents = []
         self.maxDepth = 0
 
-        
+    def addChild(self, n):
+        self.children.append(n)
+        n.ancestors.extend(self.ancestors)
+        n.ancestors.append(self)
+        if n.maxDepth < self.maxDepth + 1:
+            n.maxDepth = self.maxDepth + 1
 
+    def printAncestors(self):
+        print("Ancestors of ", self.val)
+        for x in self.ancestors:
+            print("Parent = ", x.val, ", Depth = ", x.maxDepth, "\n")
+
+
+
+def LCA(root, x, y):
+    
 # def lowestCommonAncestor(root, x, y):
 #
 #     path1 = []
