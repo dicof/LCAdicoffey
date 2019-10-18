@@ -1,9 +1,14 @@
 class Node:
     def __init__(self, val):
         self.val =  val
-        self.left = None
-        self.right = None
-        self.visited = False
+        #self.left = None
+        #self.right = None
+        #self.visited = False
+        self.children = []
+        self.parents = []
+        self.maxDepth = 0
+
+        
 
 # def lowestCommonAncestor(root, x, y):
 #
