@@ -15,7 +15,7 @@ class Node:
         if n.maxDepth < self.maxDepth + 1:
             n.maxDepth = self.maxDepth + 1
 
-    def printancestprs(self):
+    def printancestors(self):
         print("Ancestors of ", self.val)
         for x in self.ancestors:
             print("Parent = ", x.val, ", Depth = ", x.maxDepth, "\n")
@@ -28,6 +28,9 @@ def LCA(root, x, y):
 
     xN = findNode(root, x)
     yN = findNode(root, y)
+
+    if xN == None or yN == None:
+        return -1
 
     if xN == yN:
         return xN.val
@@ -48,10 +51,13 @@ def LCA(root, x, y):
             deepestAncestor = xN
             deepestAncestorDepth = xN.maxDepth
 
-    if yN in yN.ancestors:
+    if yN in xN.ancestors:
         if yN.maxDepth > deepestAncestorDepth:
             deepestAncestor = yN
             deepestAncestorDepth = yN.maxDepth
+
+    #Need method to iterate through ancestry
+
 
     return deepestAncestor.val
 

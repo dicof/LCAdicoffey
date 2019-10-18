@@ -91,6 +91,8 @@ class test_node(unittest.TestCase):
         self.assertEqual(-1000000000000000, node.LCA(root, 2.5, -3.3), "Common ancestor -1000000000000000")
         n3 = node.Node('seven')
         n4 = node.Node('crazy')
+        n1.addChild(n3)
+        n1.addChild(n4)
         self.assertEqual(2.5, node.LCA(root, 'seven', 'crazy'), "Common ancestor 2.5")
 
 
@@ -127,7 +129,7 @@ class test_node(unittest.TestCase):
         self.assertEqual(node.LCA(root, 1, 2), 1, "Should return 1")
         self.assertEqual(node.LCA(root, 7, 2), 2, "Should return 2")
         self.assertEqual(node.LCA(root, 4, 6), 4, "Should return 4")
-    
+
 
     def test_TreeOfOneElement(self):
         # create one element tree
@@ -139,16 +141,6 @@ class test_node(unittest.TestCase):
         self.assertEqual(node.LCA(root, 6, 7), -1, "Should return -1")
 
 
-
-    def test_DAG(self):
-        root = node.Node(1)                      #  1
-        root.left = node.Node(2)                # /   \
-        root.right = node.Node(3)              # 2     3
-        root.left.right = node.Node(4)        # / \  /  \
-        root.right.left = root.left.right  #       4
-
-
-        self.assertEqual(node.LCA(root, 4, 3), 3, "Should be 3")
 
 
 
