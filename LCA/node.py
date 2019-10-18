@@ -36,7 +36,24 @@ def LCA(root, x, y):
         return -1
 
     deepestAncestorDepth = -1
-    deepestAncestor = None 
+    deepestAncestor = None
+    for i in xN.ancestors:
+        if i in yN.ancestors:
+            if i.maxDepth > deepestAncestorDepth:
+                deepestAncestor = i
+                deepestAncestorDepth = i.maxDepth
+
+    if xN in yN.ancestors:
+        if xN.maxDepth > deepestAncestorDepth:
+            deepestAncestor = xN
+            deepestAncestorDepth = xN.maxDepth
+
+    if yN in yN.ancestors:
+        if yN.maxDepth > deepestAncestorDepth:
+            deepestAncestor = yN
+            deepestAncestorDepth = yN.maxDepth
+
+    return deepestAncestor.val
 
 
 
