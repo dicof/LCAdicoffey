@@ -26,6 +26,18 @@ def LCA(root, x, y):
     if root == None:
         return -1
 
+    xN = findNode(root, x)
+    yN = findNode(root, y)
+
+    if xN == yN:
+        return xN.val
+
+    if xN == None or yN == None:
+        return -1
+
+    deepestAncestorDepth = -1
+    deepestAncestor = None 
+
 
 
 
