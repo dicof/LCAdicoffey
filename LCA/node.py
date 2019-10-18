@@ -34,7 +34,15 @@ def LCA(root, x, y):
 
 
 def findNode(node, val):
-    
+    if node.val == val:
+        return node
+    elif len(node.children) != 0:
+        for x in node.children:
+            n = findNode(x,val)
+            if n != None:
+                return n
+    else:
+        return None
 # def lowestCommonAncestor(root, x, y):
 #
 #     path1 = []
