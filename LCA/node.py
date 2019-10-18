@@ -23,6 +23,17 @@ class Node:
 
 
 def LCA(root, x, y):
+    if root == None:
+        return -1
+
+
+
+
+
+
+
+
+def findNode(node, val):
     
 # def lowestCommonAncestor(root, x, y):
 #
