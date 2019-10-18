@@ -197,6 +197,7 @@ class test_node(unittest.TestCase):
         n12.addChild(n14)
         n13.addChild(n14)
         self.assertEqual(11, node.LCA(root, 14, 11), "Common ancestor of 14 and 11 is 11")
+        self.assertEqual(11, node.LCA(root, 14, 1), "Common ancestor of 14 and 11 is 11")
 
 
 
