@@ -61,7 +61,25 @@ def add_edge(self, edge):
     vertex1, vertex2 = edge
     if vertex1 in self.__graph_dict and vertex2 in self.__graph_dict:
             self.__graph_dict[vertex1].append(vertex2)
-        else:
+    else:
             self.add_vertex(vertex2)
             self.add_vertex(vertex1)
             self.__graph_dict[vertex1].append(vertex2)
+
+def __generate_edges(self):
+        edges = []
+        for vertex in self.__graph_dict:
+            for neighbour in self.__graph_dict[vertex]:
+                s = [vertex, neighbour]
+                if s not in edges:
+                    edges.append( s )
+        return edges
+
+def __str__(self):
+        res = "vertices: "
+        for k in self.__graph_dict:
+            res += str(k) + ", "
+        res += "edges: "
+        for edge in self.__generate_edges():
+            res += str(edge) + " "
+        return res

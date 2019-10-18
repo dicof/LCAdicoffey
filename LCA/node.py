@@ -42,7 +42,9 @@ def findPath( root, path, k):
 
 
 def lowestCommonAncestor(root, x, y):
-    if (root is not None):
+    if (root is None):
+        return -1
+    else:
         if (root.left is None and root.right is None and (x is not y)):
             return -1
     return LCARecursive(root, x, y, [False], [False])
@@ -51,7 +53,6 @@ def lowestCommonAncestor(root, x, y):
 def LCARecursive(root, x, y, path1, path2):
     if (root is None):
         return -1
-
     if (root.visited is True):
         return -1
 

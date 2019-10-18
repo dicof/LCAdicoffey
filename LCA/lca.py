@@ -134,10 +134,9 @@ class test_node(unittest.TestCase):
         root = node.Node(1)                      #  1
         root.left = node.Node(2)                # /   \
         root.right = node.Node(3)              # 2     3
-        root.left.left = node.Node(4)         #   \\  //
-        root.left.right = root.left.left    #       4
-        root.right.left = root.left.right
-        root.right.right = root.right.left
+        root.left.right = node.Node(4)        # / \  /  \
+        root.right.left = root.left.right  #       4
+
 
         self.assertEqual(node.lowestCommonAncestor(root, 4, 3), 3, "Should be 3")
 
