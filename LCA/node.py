@@ -5,7 +5,7 @@ class Node:
         #self.right = None
         #self.visited = False
         self.children = []
-        self.parents = []
+        self.ancestors = []
         self.maxDepth = 0
 
     def addChild(self, n):
@@ -15,7 +15,7 @@ class Node:
         if n.maxDepth < self.maxDepth + 1:
             n.maxDepth = self.maxDepth + 1
 
-    def printAncestors(self):
+    def printancestprs(self):
         print("Ancestors of ", self.val)
         for x in self.ancestors:
             print("Parent = ", x.val, ", Depth = ", x.maxDepth, "\n")
