@@ -192,7 +192,13 @@ class test_node(unittest.TestCase):
         self.assertEqual(2, node.LCA(root, 4, 5))
         self.assertEqual(1, node.LCA(root, 4, 6))
 
-
+    def test_multipleRoutes(self):
+        root = createDAG()
+        # lca.findNode(root, 10).printAncestors() these were for debugging
+        # lca.findNode(root, 12).printAncestors()
+        self.assertEqual(6, node.LCA(root, 10, 12), "Common Ancestor of 10 & 12 is 6")
+        self.assertEqual(2, node.LCA(root, 8, 13), "Common Ancestor of 8 & 13 is 2")
+        self.assertEqual(3, node.LCA(root, 6, 9), "Common Ancestor of 6 & 9 is 3")
 
 if __name__ == '__main__':
     unittest.main()
