@@ -199,7 +199,19 @@ class test_node(unittest.TestCase):
         self.assertEqual(11, node.LCA(root, 14, 11), "Common ancestor of 14 and 11 is 11")
         self.assertEqual(1, node.LCA(root, 14, 1), "Common ancestor of 14 and 11 is 11")
 
-
+    def test_notGivenRoot(self):
+        root = node.Node(1)
+        n2 = node.Node(2)
+        n3 = node.Node(3)
+        n4 = node.Node(4)
+        n5 = node.Node(5)
+        root.addChild(n2)
+        n2.addChild(n3)
+        n3.addChild(n4)
+        n3.addChild(n5)
+        n2.addChild(n5)
+        root.addChild(n4)
+        self.assertEqual(-1, node.LCA(n2, 5, 3), "Given node that isn't root of diagram")
 
 
 
