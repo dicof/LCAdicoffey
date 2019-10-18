@@ -40,9 +40,6 @@ def LCA(root, x, y):
     if xN == yN:
         return xN.val
 
-    if xN == None or yN == None:
-        return -1
-
     deepestAncestorDepth = -1
     deepestAncestor = None
     for i in xN.ancestors:
